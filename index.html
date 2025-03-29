@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseTrack - Your Fitness Journey</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>PulseTrack</h1>
+            </div>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Challenges</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="user-greeting">
+            <div class="user-info">
+                <h2>Hello, Alex!</h2>
+                <p>Let's crush today's goals</p>
+            </div>
+            <div class="date-display">
+                <p id="current-date">March 29, 2025</p>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            <div class="metrics-container">
+                <div class="metric-card" id="steps-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div class="metric-info">
+                        <h3>Steps</h3>
+                        <div class="metric-value" id="steps-value">8,243</div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="steps-progress"></div>
+                        </div>
+                        <div class="goal-text">Goal: <span id="steps-goal">10,000</span></div>
+                    </div>
+                </div>
+
+                <div class="metric-card" id="calories-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="metric-info">
+                        <h3>Calories</h3>
+                        <div class="metric-value" id="calories-value">645</div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="calories-progress"></div>
+                        </div>
+                        <div class="goal-text">Goal: <span id="calories-goal">850</span></div>
+                    </div>
+                </div>
+
+                <div class="metric-card" id="distance-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="metric-info">
+                        <h3>Distance</h3>
+                        <div class="metric-value" id="distance-value">5.7</div>
+                        <div class="unit">km</div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="distance-progress"></div>
+                        </div>
+                        <div class="goal-text">Goal: <span id="distance-goal">8.0</span> km</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-summary">
+                <h2>Activity Summary</h2>
+                <div class="chart-container">
+                    <canvas id="weekly-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="control-buttons">
+                    <button id="start-activity" class="control-btn">
+                        <i class="fas fa-play"></i> Start Activity
+                    </button>
+                    <button id="pause-activity" class="control-btn">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="stop-activity" class="control-btn">
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </div>
+                <div class="settings-container">
+                    <div class="settings-card">
+                        <h3>Update Goals</h3>
+                        <div class="settings-item">
+                            <label for="steps-goal-input">Steps:</label>
+                            <div class="input-with-buttons">
+                                <button class="decrement-btn" data-target="steps-goal-input">-</button>
+                                <input type="number" id="steps-goal-input" value="10000" min="1000" step="1000">
+                                <button class="increment-btn" data-target="steps-goal-input">+</button>
+                            </div>
+                        </div>
+                        <div class="settings-item">
+                            <label for="calories-goal-input">Calories:</label>
+                            <div class="input-with-buttons">
+                                <button class="decrement-btn" data-target="calories-goal-input">-</button>
+                                <input type="number" id="calories-goal-input" value="850" min="100" step="50">
+                                <button class="increment-btn" data-target="calories-goal-input">+</button>
+                            </div>
+                        </div>
+                        <div class="settings-item">
+                            <label for="distance-goal-input">Distance (km):</label>
+                            <div class="input-with-buttons">
+                                <button class="decrement-btn" data-target="distance-goal-input">-</button>
+                                <input type="number" id="distance-goal-input" value="8.0" min="0.5" step="0.5">
+                                <button class="increment-btn" data-target="distance-goal-input">+</button>
+                            </div>
+                        </div>
+                        <button id="save-goals" class="save-btn">Save Goals</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PulseTrack. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

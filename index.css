@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #5e60ce;
+    --secondary-color: #64dfdf;
+    --accent-color: #6930c3;
+    --background-color: #10002b;
+    --card-background: rgba(30, 10, 60, 0.8);
+    --text-color: #ffffff;
+    --text-secondary: #b5b5b5;
+    --steps-color: #5390d9;
+    --calories-color: #ff5e78;
+    --distance-color: #48bfe3;
+    --glow-strength: 0px 0px 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(105, 48, 195, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(72, 191, 227, 0.2) 0%, transparent 40%);
+}
+
+/* Header and Navigation */
+header {
+    background-color: rgba(20, 0, 35, 0.9);
+    padding: 15px 40px;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(100, 223, 223, 0.2);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: var(--secondary-color);
+    font-size: 24px;
+    filter: drop-shadow(var(--glow-strength) var(--secondary-color));
+}
+
+.logo h1 {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--text-color);
+}
+
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    box-shadow: var(--glow-strength) var(--secondary-color);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.user-greeting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.user-info h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.user-info p {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.date-display p {
+    font-size: 16px;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+/* Metrics Cards */
+.metrics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.metric-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+}
+
+#steps-card {
+    box-shadow: 0 5px 15px rgba(83, 144, 217, 0.2);
+}
+
+#steps-card:hover {
+    box-shadow: 0 8px 20px rgba(83, 144, 217, 0.3);
+}
+
+#calories-card {
+    box-shadow: 0 5px 15px rgba(255, 94, 120, 0.2);
+}
+
+#calories-card:hover {
+    box-shadow: 0 8px 20px rgba(255, 94, 120, 0.3);
+}
+
+#distance-card {
+    box-shadow: 0 5px 15px rgba(72, 191, 227, 0.2);
+}
+
+#distance-card:hover {
+    box-shadow: 0 8px 20px rgba(72, 191, 227, 0.3);
+}
+
+.metric-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+#steps-card .metric-icon {
+    background-color: rgba(83, 144, 217, 0.2);
+    color: var(--steps-color);
+}
+
+#steps-card .metric-icon i {
+    filter: drop-shadow(var(--glow-strength) var(--steps-color));
+}
+
+#calories-card .metric-icon {
+    background-color: rgba(255, 94, 120, 0.2);
+    color: var(--calories-color);
+}
+
+#calories-card .metric-icon i {
+    filter: drop-shadow(var(--glow-strength) var(--calories-color));
+}
+
+#distance-card .metric-icon {
+    background-color: rgba(72, 191, 227, 0.2);
+    color: var(--distance-color);
+}
+
+#distance-card .metric-icon i {
+    filter: drop-shadow(var(--glow-strength) var(--distance-color));
+}
+
+.metric-icon i {
+    font-size: 22px;
+}
+
+.metric-info {
+    flex: 1;
+}
+
+.metric-info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.unit {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.progress-container {
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+#steps-card .progress-bar {
+    background-color: var(--steps-color);
+    box-shadow: 0 0 8px var(--steps-color);
+    width: 82.4%;
+}
+
+#calories-card .progress-bar {
+    background-color: var(--calories-color);
+    box-shadow: 0 0 8px var(--calories-color);
+    width: 75.9%;
+}
+
+#distance-card .progress-bar {
+    background-color: var(--distance-color);
+    box-shadow: 0 0 8px var(--distance-color);
+    width: 71.3%;
+}
+
+.goal-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Activity Summary */
+.activity-summary {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.activity-summary h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    height: 300px;
+    position: relative;
+}
+
+/* Controls Section */
+.controls-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 15px;
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn {
+    background-color: rgba(30, 10, 80, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+}
+
+#start-activity {
+    background-color: rgba(72, 191, 227, 0.2);
+    color: var(--secondary-color);
+}
+
+#start-activity:hover {
+    background-color: rgba(72, 191, 227, 0.3);
+    box-shadow: 0 0 15px rgba(72, 191, 227, 0.5);
+}
+
+#pause-activity {
+    background-color: rgba(255, 214, 10, 0.2);
+    color: #ffd60a;
+}
+
+#pause-activity:hover {
+    background-color: rgba(255, 214, 10, 0.3);
+    box-shadow: 0 0 15px rgba(255, 214, 10, 0.5);
+}
+
+#stop-activity {
+    background-color: rgba(255, 94, 120, 0.2);
+    color: var(--calories-color);
+}
+
+#stop-activity:hover {
+    background-color: rgba(255, 94, 120, 0.3);
+    box-shadow: 0 0 15px rgba(255, 94, 120, 0.5);
+}
+
+/* Settings Card */
+.settings-container {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.settings-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.settings-item {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.settings-item label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.input-with-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-buttons input {
+    flex: 1;
+    background-color: rgba(30, 10, 80, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+}
+
+.input-with-buttons input:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(100, 223, 223, 0.2);
+}
+
+.increment-btn, .decrement-btn {
+    background-color: rgba(94, 96, 206, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.increment-btn:hover, .decrement-btn:hover {
+    background-color: rgba(94, 96, 206, 0.3);
+    box-shadow: 0 0 15px rgba(94, 96, 206, 0.5);
+}
+
+.decrement-btn {
+    margin-right: 8px;
+}
+
+.increment-btn {
+    margin-left: 8px;
+}
+
+.save-btn {
+    background-color: rgba(105, 48, 195, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.save-btn:hover {
+    background-color: rgba(105, 48, 195, 0.3);
+    box-shadow: 0 0 15px rgba(105, 48, 195, 0.5);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(20, 0, 35, 0.9);
+    color: var(--text-secondary);
+    font-size: 14px;
+    border-top: 1px solid rgba(100, 223, 223, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    .metrics-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .control-buttons {
+        flex-direction: column;
+    }
+    
+    .control-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo h1 {
+        font-size: 20px;
+    }
+    
+    nav ul li a {
+        font-size: 14px;
+    }
+    
+    .metric-value {
+        font-size: 28px;
+    }
+}
